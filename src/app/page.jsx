@@ -10,8 +10,10 @@ export default function Home() {
     <>
   
     <Main/>
+    <section>
     <Merchandising/>
     <Newsletter/>
+    </section>
     
     </>
   );
