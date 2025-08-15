@@ -3,7 +3,7 @@ export default {
   language: "Language",
 
   stream:'Stream Now',
-  stream_description:'On Phone, PC or Tablet',
+  stream_description:'Phone, PC, Tablet.',
   album_available:'Album Available',
   runs_out:'Buy the album before it runs out!',
 

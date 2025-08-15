@@ -21,25 +21,27 @@ function Main() {
   return (
     <>
       <header className='flex flex-col w-full relative xl:mx-96'>
-        <p className='absolute z-1 flex flex-col ml-4 mt-6 p-2 text-white/80 '>
-          <span className='text-[20px] lg:text-3xl'>Taylor Alisson Swift</span>
+        <p className='absolute z-1 flex flex-col ml-4 mt-6 p-2 text-black '>
+          <span className='text-[20px] lg:text-3xl font-medium'>Taylor Alisson Swift</span>
           <span className='text-[12px] lg:text-sm'>ElectroPop, Country, Pop</span>
         </p>
         
-        <section className='absolute z-1 bottom-6 left-6 flex flex-col lg:left-16 lg:bottom-8 '>
-          <button className='flex items-center gap-1 bg-[#555555b9] rounded-md py-2 pl-3 pr-[6px] w-fit '>
-            <span className='text-white/70 text-[12px] lg:text-sm inter-200'> <Link href="/albums">{textos.stream}</Link></span>
+        <section className='absolute z-1 bottom-6 left-6 flex flex-col lg:left-16 lg:bottom-8'>
+          <button className='flex items-center gap-1 bg-[#161616b9] rounded-md py-2 pl-3 pr-[6px] w-fit '>
+            <span className='text-[12px] lg:text-sm text-white'> <Link href="/albums">{textos.stream}</Link></span>
             <Image src='/arrowLink.svg' alt="" height={10} width={10}  />
           </button>
-          <p className='text-white/40 text-[9px] lg:text-[10px] pl-1 pt-[3px]'>Disponible en todo</p>
+          <p className=' text-[9px] lg:text-[10px] pl-1 pt-[3px] text-white'>{textos.stream_description}</p>
         </section>
         
          <p className='absolute z-1 flex flex-col bottom-6 right-6 text-end lg:bottom-8'>
-          <span className={`text-start text-white/70 text-[14px] lg:text-[18px]`}>#1 USA on Spotify</span>
+          <span className={`text-start text-[14px] lg:text-[18px]`}>#1 USA on Spotify</span>
           <span className='secondTop inter-200'>#1 Canada Spotify</span>
           <span className='secondTop inter-200'>#2 Apple Music</span>
         </p> 
-        <Image src='/presentationArtist.jpg' alt="h" className="brightness-80 object-cover" height={420} width={420} />
+        <section className='h-[37rem]'>
+        <Image src='/folklore.jpg' alt="h" className="brightness-80 object-cover" fill />
+        </section>
       </header>
 
       <aside className="lg:mx-30 xl:mx-96 mb-30 ">
