@@ -29,11 +29,11 @@ animation-timing-function: linear;
 
 
 .secondTop{
-    @apply text-[16px] lg:text-[16px] 
+    @apply text-[16px] lg:text-[16px] text-white/40
 }
 
 .btn {
-    @apply rounded-[8px] py-3 px-8 text-[14px] text-white/70
+    @apply rounded-[8px] py-[10px] px-8 text-[14px] text-white/70
 }
 
 .navLink{
