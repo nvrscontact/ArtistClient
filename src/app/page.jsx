@@ -1,4 +1,5 @@
 
+import Album from './components/Album';
 import Main from './components/Main'
 import Merchandising from './components/Merchandising';
 import Newsletter from './components/Newsletter';
@@ -11,6 +12,7 @@ export default function Home() {
   
     <Main/>
     <section>
+    <Album/>
     <Merchandising/>
     <Newsletter/>
     </section>

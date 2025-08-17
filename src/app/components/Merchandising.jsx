@@ -5,7 +5,7 @@ import Link from "next/link"
 function Merchandising() {
   return (
     <>
-     <article className='flex flex-col items-center mx-auto mb-40 w-80 text-white/50 inter-200 text-center'>
+     <article className='flex flex-col items-center mx-auto mb-40 w-80 text-white/50 text-center'>
           <h1 className='text-2xl text-white/70'>New Merchandising</h1>
           <span className='text-[12px] mb-4 mx-12 '>T-shirt Sport - Running</span>
           <Image src='/ShirtMerchandising.png' alt="" height={200} width={200} />
