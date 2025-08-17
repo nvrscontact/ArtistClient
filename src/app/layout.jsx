@@ -7,7 +7,7 @@ import { GlobalContext } from './contexts/GlobalContext'
 import Footer from "./components/Footer";
 
 const inter = Inter({
-  weight:['200'],
+  weight:['200','700'],
   subsets:['latin'],
   variable: '--font-inter',
 });

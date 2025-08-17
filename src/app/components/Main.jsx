@@ -20,27 +20,30 @@ function Main() {
 
   return (
     <>
-      <header className='flex flex-col w-full relative xl:mx-96'>
-        <p className='absolute z-1 flex flex-col ml-4 mt-6 p-2 text-black '>
-          <span className='text-[20px] lg:text-3xl font-medium'>Taylor Alisson Swift</span>
-          <span className='text-[12px] lg:text-sm'>ElectroPop, Country, Pop</span>
-        </p>
+      <header className='flex flex-col w-full max-w-md mx-auto relative xl:mx-96'>
+          <section className='absolute z-10 top-10 flex flex-col text-center left-1/2 -translate-x-1/2'>
+            <h1 className=' text-[22px] text-white/60'>Taylor Alisson Swift</h1>
+            <span className='text-sm mb-3 text-white/50'>Album of the year nomination</span>
+          <p className='text-[14px] space-x-3 lg:text-sm text-white/40'>
+            <span>Country</span>
+            <span>ElectroPop</span>
+            <span>Pop</span>
+          </p>
+          </section>
+      
         
-        <section className='absolute z-1 bottom-6 left-6 flex flex-col lg:left-16 lg:bottom-8'>
-          <button className='flex items-center gap-1 bg-[#161616b9] rounded-md py-2 pl-3 pr-[6px] w-fit '>
-            <span className='text-[12px] lg:text-sm text-white'> <Link href="/albums">{textos.stream}</Link></span>
-            <Image src='/arrowLink.svg' alt="" height={10} width={10}  />
+        
+         <p className='absolute z-10 flex flex-col items-end bottom-10 right-8 text-end lg:bottom-8 text-white/50'>
+          <span className={`text-start text-[18px] lg:text-[18px] `}>#1 USA on Spotify</span>
+          <span className='secondTop'>#1 Canada Spotify</span>
+          <span className='secondTop'>#2 Apple Music</span>
+          <button className='mt-4 flex items-center gap-2 text-xs bg-white/10 rounded-md py-3 pl-4 pr-3 w-fit text-white'>
+            <Link href="/albums">{textos.stream}</Link>
+            <Image src='/arrowLink.svg' alt="" height={11} width={11}  />
           </button>
-          <p className=' text-[9px] lg:text-[10px] pl-1 pt-[3px] text-white'>{textos.stream_description}</p>
-        </section>
-        
-         <p className='absolute z-1 flex flex-col bottom-6 right-6 text-end lg:bottom-8'>
-          <span className={`text-start text-[14px] lg:text-[18px]`}>#1 USA on Spotify</span>
-          <span className='secondTop inter-200'>#1 Canada Spotify</span>
-          <span className='secondTop inter-200'>#2 Apple Music</span>
         </p> 
-        <section className='h-[37rem]'>
-        <Image src='/folklore.jpg' alt="h" className="brightness-80 object-cover" fill />
+        <section className='h-[36rem]'>
+        <Image src='/presentationArtist.jpg' alt="h" className="brightness-70 object-cover" fill quality={80} />
         </section>
       </header>
 
