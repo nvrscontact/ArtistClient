@@ -65,12 +65,12 @@ function LanguageSelector() {
 
     {menuAbierto && (
 
-    <div className='absolute right-0 top-14 z-2 bg-black/60 backdrop-blur-xl w-full inter-200 pr-2'> {idiomasDisponibles.map((idioma) => (  
+    <div className='absolute right-0 top-14 z-20 bg-black/60 backdrop-blur-xl w-full inter-200 pr-2'> {idiomasDisponibles.map((idioma) => (  
         /* abajo se crea una sección del idioma que tiene incrustada el idioma.codigo
         por lo que al clickar en ella tambien clicamos en el codigo del idioma.  */
         <section key={idioma.codigo} onClick={() => seleccionarIdioma(idioma.codigo)} className='flex flex-col justify-end '>
             <ul className='flex gap-2 items-center text-white/60  py-4 pr-2 w-full justify-end border-b border-white/10'>
-                <span className='text-[16px] lg:text-md '>{idioma.nombre} </span>
+                <span className='text-[14px] lg:text-md '>{idioma.nombre} </span>
                 <img src={idioma.bandera} alt="" className='h-4' />
             </ul>
         </section> 

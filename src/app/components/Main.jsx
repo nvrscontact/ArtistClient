@@ -20,15 +20,13 @@ function Main() {
 
   return (
     <>
-      <header className='flex flex-col w-full max-w-md mx-auto relative xl:mx-96'>
+      <header className='flex flex-col w-full relative xl:mx-96'>
           <section className='absolute z-10 top-10 flex flex-col text-center left-1/2 -translate-x-1/2'>
             <h1 className=' text-[22px] text-white/60'>Taylor Alisson Swift</h1>
-            <span className='text-sm mb-3 text-white/50'>Album of the year nomination</span>
-          <p className='text-[14px] space-x-3 lg:text-sm text-white/40'>
-            <span>Country</span>
-            <span>ElectroPop</span>
-            <span>Pop</span>
-          </p>
+            <p className='text-[14px] space-x-3 lg:text-sm text-white/40 mb-3'>
+              Country • ElectroPop • Pop
+            </p>
+           <span className='text-sm mb-3 text-white/50'>Album of the year nomination</span>
           </section>
       
         
