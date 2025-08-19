@@ -17,7 +17,7 @@ function Footer() {
           <a href="https://facebook.com"><Image src="/spotify.svg" alt="" width={18} height={10}/></a>
           <a href="https://facebook.com"><Image src="/tik-tok.svg" alt="" width={18} height={10}/></a> 
           <a href="https://facebook.com"><Image src="/instagram.svg" alt="" width={18} height={10}/></a>
-          <a href="https://facebook.com"><Image src="/x.svg" alt="" width={18} height={20}/></a>
+          <a href="https://facebook.com"><Image src="/x.svg" alt="" width={18} height={10}/></a>
       </li>
     
       <section className='flex my-6 gap-9 border-y py-6 border-white/10 inter-200'>

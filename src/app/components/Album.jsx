@@ -19,7 +19,7 @@ function Album() {
 
         <section className='mb-3'>
         <Image src='/folklore.jpg' alt="" width={200} height={110} />
-        <p className='text-[10px] w-full text-center bg-black/40 py-[6px] '>44 minutes • Pop • 13 Songs</p>
+        <p className='text-[10px] w-full text-center bg-black/10 py-[6px] '>44 minutes • Pop • 13 Songs</p>
         </section>
      
          <p className='text-[12px] mb-4 text-white/50 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum beatae maxime distinctio rerum ullam natus molestias dolorum eaque modi!</p>
