@@ -20,17 +20,7 @@ function Main() {
 
   return (
     <>
-      <aside className="lg:mx-30 xl:mx-96 ">
-        <section className='relative overflow-hidden w-full'>
-          <div className="w-max carousel-track bg-[#44444418] space-x-14">
-          {Array(4).fill(mensajes[0]).map((mensaje,index) => (
-           <p key={index} className="shrink-0 space-x-24 py-3 px-4 text-[12px] text-white/60 inter-200 flex lg:text-sm ">
-            {mensaje}
-          </p>
-          ))}
-          </div>
-        </section>
-       </aside> 
+
       <header className='flex flex-col w-full relative xl:mx-96'>
           <section className='absolute z-10 top-10 flex flex-col text-center w-full left-1/2 -translate-x-1/2'>
             <h1 className=' text-[22px] text-white/60'>Taylor Alisson Swift</h1>
@@ -49,6 +39,17 @@ function Main() {
         <Image src='/presentationArtist.jpg' alt="h" className="brightness-90 object-cover" fill quality={90} />
         </section>
       </header>
+           <aside className="lg:mx-30 xl:mx-96 ">
+        <section className='relative overflow-hidden w-full'>
+          <div className="w-max carousel-track bg-black/50 space-x-14">
+          {Array(4).fill(mensajes[0]).map((mensaje,index) => (
+           <p key={index} className="shrink-0 space-x-24 py-3 px-4 text-[12px] text-white/60 inter-200 flex lg:text-sm ">
+            {mensaje}
+          </p>
+          ))}
+          </div>
+        </section>
+       </aside> 
 
     </>
   )
