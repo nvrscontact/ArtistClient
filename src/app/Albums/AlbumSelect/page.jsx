@@ -23,10 +23,10 @@ function page() {
           } 
         },
         { id: '2', 
-          title:'Style', 
+          title:'Folklore', 
           year:'May 2013',
           type:'Deluxe Version',
-          src: '/style_album.jpg',
+          src: '/folklore.jpg',
           links: {
             spotify:'https://open.spotify.com/intl-es/album/1EoDsNmgTLtmwe1BDAVxV5',
             youtube:'https://music.youtube.com/watch?v=sEPXrepgujY&list=OLAK5uy_kRl6HdICkQpZF7zuHu_Yx-RDVHw-hboxo',
@@ -38,6 +38,17 @@ function page() {
           year:'February 2023',
           type:'New Album',
           src: '/midnightsAlbum.jpg',
+          links: {
+            spotify:'https://open.spotify.com/intl-es/album/1EoDsNmgTLtmwe1BDAVxV5',
+            youtube:'https://music.youtube.com/watch?v=sEPXrepgujY&list=OLAK5uy_kRl6HdICkQpZF7zuHu_Yx-RDVHw-hboxo',
+            apple:'https://music.apple.com/es/album/red-taylors-version/1590368448?i=1590368453',
+          } 
+        },
+        { id: '4', 
+          title:'Style', 
+          year:'February 2023',
+          type:'New Album',
+          src: '/style_album.jpg',
           links: {
             spotify:'https://open.spotify.com/intl-es/album/1EoDsNmgTLtmwe1BDAVxV5',
             youtube:'https://music.youtube.com/watch?v=sEPXrepgujY&list=OLAK5uy_kRl6HdICkQpZF7zuHu_Yx-RDVHw-hboxo',
