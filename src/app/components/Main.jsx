@@ -35,21 +35,11 @@ function Main() {
               <Image src='/arrowLink.svg' alt="" height={11} width={12}  />
             </button>
           </p> 
-        <section className='h-[36rem]'>
-        <Image src='/presentationArtist.jpg' alt="h" className="brightness-90 object-cover" fill quality={90} />
+        <section className='h-[37rem]'>
+        <Image src='/presentationArtist.jpg' alt="h" className="brightness-90 object-cover" fill quality={100} />
         </section>
       </header>
-           <aside className="lg:mx-30 xl:mx-96 ">
-        <section className='relative overflow-hidden w-full'>
-          <div className="w-max carousel-track bg-black/50 space-x-14">
-          {Array(4).fill(mensajes[0]).map((mensaje,index) => (
-           <p key={index} className="shrink-0 space-x-24 py-3 px-4 text-[12px] text-white/60 inter-200 flex lg:text-sm ">
-            {mensaje}
-          </p>
-          ))}
-          </div>
-        </section>
-       </aside> 
+
 
     </>
   )
