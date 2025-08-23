@@ -35,7 +35,7 @@ function Main() {
               <Image src='/arrowLink.svg' alt="" height={11} width={12}  />
             </button>
           </p> 
-        <section className='h-[37rem]'>
+        <section className='h-[38rem]'>
         <Image src='/presentationArtist.jpg' alt="h" className="brightness-90 object-cover" fill quality={100} />
         </section>
       </header>
