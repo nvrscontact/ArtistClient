@@ -34,7 +34,7 @@ function PaymentsContent() {
     
         useEffect(() => { // Validar en servidor en stripe el pago.
         if (status === 'success' && sessionId){
-          fetch(`http://localhost:5000/api/session/${sessionId}`)
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/session/${sessionId}`)
     
           .then(res=>res.json())
           .then(data => {
@@ -111,7 +111,7 @@ function PaymentsContent() {
                       label:'paypal' }}
                       
                     createOrder={async () => {
-                      const response = await fetch("http://localhost:5000/create-order", {
+                      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/create-order`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ category, productId: id }),
@@ -123,7 +123,7 @@ function PaymentsContent() {
     
     
                     onApprove={async (data) => {
-                      const response = await fetch("http://localhost:5000/capture-order", {
+                      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/capture-order`, {
                         method: "POST",
                         headers: { "Content-Type": "application/json" },
                         body: JSON.stringify({ orderID: data.orderID }),
