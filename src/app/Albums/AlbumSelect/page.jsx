@@ -3,7 +3,7 @@
 import React from 'react'
 import {useRouter} from 'next/navigation';
 import Image from "next/image";
-import { useImage } from '../../contexts/albumImg/ImageContext'
+import { useImage } from '@/contexts/albumImg/ImageContext';
 
 function page() {
 

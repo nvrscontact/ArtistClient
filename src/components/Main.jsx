@@ -9,19 +9,11 @@ import Link from "next/link"
 function Main() {
     const {textos} = useContext(LanguageContext);
 
-    const mensajes = [
-    <>
-    <span><span className='text-white'>Midnights</span> Album Available! </span>
-    <span>Buy before sold out.</span>
-    <span>Buy your tickets for <span className='text-white/80'>#Tour2025</span></span>
-    <span>10% discount in albums</span>
-    </>
-  ]
 
   return (
     <>
 
-      <header className='flex flex-col w-full relative xl:mx-96'>
+      <header className='flex flex-col w-full relative'>
           <section className='absolute z-10 top-10 flex flex-col text-center w-full left-1/2 -translate-x-1/2'>
             <h1 className=' text-[22px] text-white/60'>Taylor Alisson Swift</h1>
            <span className='text-sm mb-3 text-white/50'>Album of the year nomination</span>

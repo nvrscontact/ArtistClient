@@ -12,8 +12,8 @@ function Merchandising() {
           <span className='text-[12px] -mt-3 mb-4'>Editor's Collection</span>
           <p className='text-[12px] mb-4'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum beatae maxime distinctio rerum ullam natus molestias dolorum eaque modi!</p>
           <section className='space-x-2'>
-            <button className='bg-white/10 btn'><Link href='/store'>More Info</Link></button>
-            <button className='bg-white/30 btn'><Link href='/store'>Find Out</Link></button>
+            <button className='bg-white/10 btn'><Link href='/Information'>More Info</Link></button>
+            <button className='bg-white/20 btn'><Link href='/Store/Merch'>Find Out</Link></button>
           </section>
       </article>    
     </>

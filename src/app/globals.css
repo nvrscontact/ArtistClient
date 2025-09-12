@@ -1,19 +1,23 @@
 @import "tailwindcss";
 
-
 body{
   background-color: rgb(22, 22, 22);
+  color: white;
 }
-
 
 .secondTop{
     @apply text-[16px] lg:text-[16px] text-white/40
 }
 
 .btn {
-    @apply rounded-[8px] py-[10px] px-8 text-[14px] text-white/70
+    @apply rounded-[8px] py-3 px-10 text-[16px] text-white/70
 }
 
 .navLink{
     @apply border-b border-white/10 pb-3;
+}
+
+
+html {
+  scroll-behavior: smooth; /* suave deslizamiento en marcadores */
 }

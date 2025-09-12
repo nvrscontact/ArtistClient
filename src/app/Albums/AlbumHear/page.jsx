@@ -1,10 +1,9 @@
 "use client"
+import { useImage } from '@/contexts/albumImg/ImageContext';
 import Image from 'next/image';
-import { useImage } from '@/app/contexts/albumImg/ImageContext';
 import React from 'react'
 
 function page() {
-
     const {selectedImage} = useImage();
     if(!selectedImage) {
         return <p>no hay imagen seleccionada</p>

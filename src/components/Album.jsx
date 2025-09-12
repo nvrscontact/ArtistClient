@@ -17,19 +17,21 @@ function Album() {
             <span className='inter-300 text-[12px] text-white/40'>New Album</span>
         </section>
 
-        <section className='mb-3'>
+        <section className=''>
         <Image src='/folklore.jpg' alt="" width={200} height={110} />
-        <p className='text-[10px] w-full text-center bg-black/10 py-[6px] '>44 minutes • Pop • 13 Songs</p>
+          <p className='mt-1 text-white/70 text-[11px] w-full flex justify-center bg-black/40 py-[6px] border-b border-white/20'>44 minutes • Pop • 13 Songs</p>
         </section>
      
-         <p className='text-[12px] mb-4 text-white/50 text-center'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum beatae maxime distinctio rerum ullam natus molestias dolorum eaque modi!</p>
-          <section className='space-x-2'>
-            <button className='bg-white/10 btn'><Link href='/store'>More Info</Link></button>
-            <button className='bg-white/30 btn'><Link href='/store'>Find Out</Link></button>
-          </section>
+         <p className='text-[12px] text-white/50 text-center my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum beatae maxime distinctio rerum ullam natus molestias dolorum eaque modi!</p>
+      
+        <section className='flex space-x-2'>
+          <Link href='/Information' className='bg-white/10 btn'>More Info</Link>
+          <Link href='/Store/Album' className='bg-white/20 btn'>Find Out</Link>
+        </section>
     </article>   
     </>
-  )
+  ) 
+
 }
 
 export default Album

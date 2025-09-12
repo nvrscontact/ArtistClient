@@ -10,11 +10,11 @@ function Footer() {
 
   return (
     <>
-    <footer className='bg-black/50 p-6 lg:mx-30 xl:mx-96 text-white/40 mt-30'>
+    <footer className='bg-black/50 p-6 text-white/40 mt-30'>
 
       <li className='flex gap-4 lg:[&>*>*]:h-5 '>
-          <a href="https://facebook.com"><Image src="/youtube.svg" alt="" width={18} height={10} /></a>
           <a href="https://facebook.com"><Image src="/spotify.svg" alt="" width={18} height={10}/></a>
+          <a href="https://facebook.com"><Image src="/youtube.svg" alt="" width={18} height={10} /></a>
           <a href="https://facebook.com"><Image src="/tik-tok.svg" alt="" width={18} height={10}/></a> 
           <a href="https://facebook.com"><Image src="/instagram.svg" alt="" width={18} height={10}/></a>
           <a href="https://facebook.com"><Image src="/x.svg" alt="" width={18} height={10}/></a>
@@ -26,26 +26,27 @@ function Footer() {
 
           <section className='flex flex-col space-y-1 text-[12px] '>
             <h2 className=' text-white/70 text-[15px] mb-1'>Artist</h2>
-            <Link href='/contact'>{textos.contact}</Link>
-            <Link href='/store#store'>{textos.store}</Link>
-            <Link href='/store#refunds'>{textos.refunds}</Link>
-            <Link href='/tour'>{textos.tour}</Link>
+            <Link href='/Information#Contact'>{textos.contact}</Link>
+            <Link href='/Store'>{textos.store}</Link>
+            <Link href='/Information#refunds'>{textos.refunds}</Link>
+            <Link href='/Tour'>{textos.tour}</Link>
+            <Link href='/Albums'>{textos.albums}</Link>
           </section>
 
           <section className='flex flex-col space-y-1 text-[12px] '>
             <h2 className=' text-white/70 text-[15px] mb-1'>Information</h2>
-            <Link href='/support#support'>{textos.support}</Link>
-            <Link href='/support#accesibility'>{textos.accesibility}</Link>
+            <Link href='/Support#support'>{textos.support}</Link>
+            <Link href='/Information#accesibility'>{textos.accesibility}</Link>
           </section>
 
         </div>
 
         <div className='flex flex-col gap-2 text-[12px] lg:[&>*]:text-sm'>
           <h2 className='text-white/70 text-[15px] mb-1'>Legal and Privacy</h2>
-          <Link href='/privacy#terms' >{textos.terms}</Link>
-          <Link href='/privacy#cookies'>{textos.cookie}</Link>
-          <Link href='/privacy#privacy'>{textos.privacy}</Link>
-          <Link href='/privacy#legal'>{textos.legal}</Link>
+          <Link href='/Privacy#terms' >{textos.terms}</Link>
+          <Link href='/Privacy#cookies'>{textos.cookie}</Link>
+          <Link href='/Privacy#privacy'>{textos.privacy}</Link>
+          <Link href='/Privacy#legal'>{textos.legal}</Link>
         </div>
 
       </section>

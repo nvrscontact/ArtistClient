@@ -1,13 +1,12 @@
 import { Inter } from 'next/font/google';
 
-
 import "./globals.css";
-import NavBar from "./components/NavBar";
-import { GlobalContext } from './contexts/GlobalContext'
-import Footer from "./components/Footer";
+import { GlobalContext } from '@/contexts/GlobalContext';
+import NavBar from '@/components/NavBar';
+import Footer from '@/components/Footer';
 
 const inter = Inter({
-  weight:['200','700'],
+  weight:['200'],
   subsets:['latin'],
   variable: '--font-inter',
 });
@@ -21,7 +20,7 @@ const inter = Inter({
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={inter.className}>
-      <body className=''>
+      <body className='lg:mx-10 xl:mx-50'>
         <GlobalContext>
           <NavBar/>
             {children}
@@ -31,3 +30,18 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+
+
+/* 
+font-thin
+font-extralight
+font-light
+
+font-normal
+font-medium
+font-semibold
+font-bold
+font-extrabold
+font-black
+
+*/
