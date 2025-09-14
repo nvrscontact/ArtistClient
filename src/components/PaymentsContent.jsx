@@ -1,5 +1,5 @@
-
-import { useSearchParams } from 'next/navigation';
+'use clientt'
+import { useSearchParams, useRouter } from 'next/navigation';
 import React, { useEffect, useState } from 'react'
 import {PayPalScriptProvider, PayPalButtons } from '@paypal/react-paypal-js';
 import { useProduct } from '@/contexts/data/DataContext';
@@ -8,55 +8,60 @@ import Image from 'next/image';
 function PaymentsContent() {
   
       const searchParams = useSearchParams();
-      const [buyer, setBuyer] = useState(null);
+      const router = useRouter();
+
+      const [buyerPaypal, setBuyerPaypal] = useState(null);
+      const [buyerStripe, setBuyerStripe] = useState(null);
+
+      const sessionId = searchParams.get('session_id');
       const id = searchParams.get('id');
       const category = searchParams.get('category');
-      const status = searchParams.get('status');
-      const sessionId = searchParams.get('session_id');
-    
+
     
         // Stripe Payment
         const handlePago = async () => {
-    
         const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/stripe`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ category, productId: id }),
+          body: JSON.stringify({ category, productId: id }), // enviar categoria y id del producto al backend.
         });
     
         const data = await res.json();
         if (data.url) {
-          window.location.href = data.url; // Redirige a la pagina de Checkout de Stripe
-        } else 
-          {
-          alert("Error al crear la sesión de pago");
-        }
-      };
-    
-        useEffect(() => { // Validar en servidor en stripe el pago.
-        if (status === 'success' && sessionId){
-          fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/session/${sessionId}`)
-    
-          .then(res=>res.json())
-          .then(data => {
-            if(data.error) {
-              console.log('pago invalido',data.error);
-              return;
+          window.location.href = data.url; // al tener la respuesta del backend redirigir a checkout stripe.
+        } else {alert("Error al crear la sesión de pago");}};
+  
+
+      useEffect(() => {
+        if(!sessionId) return; // si no existe la sesión no retornes nada.
+
+          const fetchPayment = async () => { // crea una función que esperara para ejecutarse cuando se tengan los datos
+            try {
+              const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/session/${sessionId}`); // solicitud al backend para verificar si existió la sesión.
+              const data = await res.json(); // espera por la respusta y como sí existio, extraemos sus datos.
+              if(data.error) return;
+
+              const validatedPayment = {
+                email: data.customer_details.email,
+                name: data.customer_details.name,
+                address: data.customer_details.address,
+                product: data.line_items.data[0].description,
+                amount: data.amount_total / 100,
+                currency: data.currency.toUpperCase(),
+              };
+
+              setBuyerStripe(validatedPayment); // restablecemos la variable con el objeto de datos para llamarlos afuera.
+
+              router.replace(`/Payments?id=${id}&category=${category}`);  // limpiamos la url dejando los datos previos a la transacción.
+            } catch (err) {
+              console.error('error',err)
             }
-            setBuyer({
-              email: data.customer_details.email,
-              name: data.customer_details.name,
-              address: data.customer_details.address,
-              product: data.line_items.data[0].description,
-              amount: data.amount_total / 100,
-              currency: data.currency.toUpperCase(),
-            });
-          })
-        }
-      },[status, sessionId]);
-    
-      // Usamos el objeto que trajimos del contexto y si aún no existe muestra p.
-      const {selectedProduct} = useProduct();
+          };
+
+        fetchPayment(); // ejecutar la función una vez cambie el sessionId
+      }, [sessionId])
+
+      const {selectedProduct} = useProduct(); // usar el producto extraido del contexto.
       if(!selectedProduct) {
         return <p></p>
       }
@@ -65,43 +70,33 @@ function PaymentsContent() {
      <>
         <div className='mx-10 mt-20 flex flex-col'>
     
-          <article className='flex flex-col mb-30'>
-            <h1 className='font-bold text-4xl mb-2'>{selectedProduct.name}  </h1>
-            <h2 className='mb-5'>With a cost of: {selectedProduct.price} $</h2>
-            <p className='text-white/70'>Includes Midnights Album, autographed by Taylor Swift. </p>
+          <article className='flex flex-col mb-30 text-white/70'>
+            <h1 className='font-bold text-4xl mb-1'>{selectedProduct.name}  </h1>
+            <h2 className='mb-5 '>Price: {selectedProduct.price} €</h2>
+            <Image src={selectedProduct.img} alt='' width='160' height='160'/>
+            <p className=''>Includes Midnights Album, autographed by Taylor Swift. </p>
           </article>
     
           <section className='flex flex-col items-center gap-10 '>
-    
+              <h1 className='text-white/70 w-full text-center pb-3 text-xs'>Payments Methods Available</h1>
             <section>
-    
-              <div className='flex flex-col gap-2 items-center' onClick={handlePago}>
-                  <button className='text-[14px] bg-white/70 text-black/70 font-bold py-2 px-4 rounded-md '>
-                    Pay with Credit or Debit Card
+              <div className='flex flex-col gap-2 items-end' onClick={handlePago}>
+                  <button className='flex gap-2 text-[14px] border border-white/30 text-white/70 font-bold py-2 pl-5 pr-4 rounded-md '>
+                  Credit / Debit Card
+                  <Image src={'/card.svg'} height={20} width={20} alt='' />
                   </button>
-                  <span className='flex gap-2 text-white/50'>
-                    <Image src={'/visa.svg'} alt="" height={30} width={30} />
-                    <Image src={'/mastercard.svg'} alt="" height={30} width={30} />
-                    <Image src={'/amex.svg'} alt="" height={30} width={30} />
-                    <Image src={'/maestro.svg'} alt="" height={30} width={30} />
+                  <span className='flex gap-[6px] mr-2 text-white/50'>
+                    <Image src={'/visa.svg'} alt="" height={20} width={25} />
+                    <Image src={'/discover.svg'} alt="" height={30} width={25} />
+                    <Image src={'/mastercard.svg'} alt="" height={30} width={25} />
+                    <Image src={'/amex.svg'} alt="" height={30} width={25} />
+                    <Image src={'/maestro.svg'} alt="" height={30} width={25} />
                   </span>
               </div>
-    
-              {status === "success" && (
-                <div className="p-4 bg-green-600 text-white rounded-lg shadow">
-                ✅ Pago realizado con éxito
-              </div>
-              )}
-    
-              {status === "cancel" && (
-                <div className="p-4 bg-red-600 text-white rounded-lg shadow">
-                  ❌ El pago fue cancelado o falló
-                </div>
-              )}
-    
             </section>
     
-            <section className='w-40'>
+            <section className='flex flex-col w-40'>
+              <span className='text-white/70 text-xs text-center mb-2'>Express Checkout</span>
                 <PayPalScriptProvider options={{ "client-id": "sb" }}>
                   <PayPalButtons
                     fundingSource='paypal'
@@ -122,7 +117,6 @@ function PaymentsContent() {
                       return data.id; // al tener esta id se abre la ventana emergente.
                     }}
     
-    
                     onApprove={async (data) => {
                       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/capture-order`, {
                         method: "POST",
@@ -132,47 +126,71 @@ function PaymentsContent() {
     
                       
                       const details = await response.json();
+
+                      if(!details?.payer){
+                        console.warn('payer no disponible')
+                      }
                       console.log(details)
-                      setBuyer({
-                        name: details.payer.name.given_name,
-                        surname: details.payer.name.surname,
-                        amount: details.purchase_units[0].payments.captures[0].amount.value,
-                        currency: details.purchase_units[0].payments.captures[0].amount.currency_code,
-                        email: details.payer.email_address,
-                        country_code: details.purchase_units[0].shipping.address.country_code,
-                        postal_code: details.purchase_units[0].shipping.address.postal_code,
-                        line_1: details.purchase_units[0].shipping.address.address_line_1,
-                        admin_area_1: details.purchase_units[0].shipping.address.admin_area_1,
-                        admin_area_2: details.purchase_units[0].shipping.address.admin_area_2,
-                        id: details.id,
-                        capture_id: details.purchase_units[0].payments.captures[0].id,
-                        status: details.status,
-                        date: details.purchase_units[0].payments.captures[0].create_time,
-    
+                      setBuyerPaypal({
+                      name: details?.payer?.name?.given_name || "",
+                      surname: details?.payer?.name?.surname || "",
+                      amount: details?.purchase_units?.[0]?.payments?.captures?.[0]?.amount?.value || "",
+                      currency: details?.purchase_units?.[0]?.payments?.captures?.[0]?.amount?.currency_code || "",
+                      email: details?.payer?.email_address || "",
+                      country_code: details?.purchase_units?.[0]?.shipping?.address?.country_code || "",
+                      postal_code: details?.purchase_units?.[0]?.shipping?.address?.postal_code || "",
+                      line_1: details?.purchase_units?.[0]?.shipping?.address?.address_line_1 || "",
+                      admin_area_1: details?.purchase_units?.[0]?.shipping?.address?.admin_area_1 || "",
+                      admin_area_2: details?.purchase_units?.[0]?.shipping?.address?.admin_area_2 || "",
+                      id: details?.id || "",
+                      capture_id: details?.purchase_units?.[0]?.payments?.captures?.[0]?.id || "",
+                      status: details?.status || "",
+                      date: details?.purchase_units?.[0]?.payments?.captures?.[0]?.create_time || "",
                       })
-                    }}/>
+
+                      router.push(`/Payments?id=${id}&category=${category}`);
+                    }}
+
+                    onError={(err) => {
+                      console.error('error en paypal', err)
+                    }}
+
+                    onCancel={() => {
+                      console.log('Pago cancelado')
+                    }}
+                    
+                    />
                 </PayPalScriptProvider>
             </section>
     
           </section>
-    
+  
             
-            {buyer && (
+            {buyerPaypal && (
               <div>
-              <p>Nombre {buyer.name} </p>
-              <p>Apellido {buyer.surname} </p>
-              <p>Monto {buyer.amount} {buyer.currency} </p>
-              <p>Monto {buyer.amount} </p>
-              <p>Email: {buyer.email} </p>
-              <p> {buyer.line_1} - {buyer.admin_area_1} - {buyer.admin_area_2} - {buyer.postal_code} - {buyer.country_code}  </p>
-              <p>ID de transacción: {buyer.id} </p>
-              <p>Pago {buyer.status} </p>
-              <p>Fecha {buyer.date} </p>
-              <p>Referencia de la transacción. {buyer.capture_id} </p>
+                Paypal Payments:
+              <p>Nombre {buyerPaypal.name} </p>
+              <p>Apellido {buyerPaypal.surname} </p>
+              <p>Monto {buyerPaypal.amount} {buyerPaypal.currency} </p>
+              <p>Monto {buyerPaypal.amount} </p>
+              <p>Email: {buyerPaypal.email} </p>
+              <p> {buyerPaypal.line_1} - {buyerPaypal.admin_area_1} - {buyerPaypal.admin_area_2} - {buyerPaypal.postal_code} - {buyerPaypal.country_code}  </p>
+              <p>ID de transacción: {buyerPaypal.id} </p>
+              <p>Pago {buyerPaypal.status} </p>
+              <p>Fecha {buyerPaypal.date} </p>
+              <p>Referencia de la transacción. {buyerPaypal.capture_id} </p>
+            </div>
+          )}
+
+          {buyerStripe && (
+            <div>
+              Stripe Payments:
+              <p>Name: {buyerStripe.name} </p>
+              <p>Prices: {buyerStripe.amount} </p>
             </div>
           )}
     
-          </div>
+        </div>
     
     
     

@@ -1,6 +1,5 @@
 
 import Album from '@/components/Album';
-import Info from '@/components/Info';
 import Main from '@/components/Main'
 import Merchandising from '@/components/Merchandising';
 import Newsletter from '@/components/Newsletter';
@@ -13,7 +12,6 @@ export default function Home() {
     <>
 
     <Main/>
-    <Info/>
     <Album/>
     <Merchandising/>
     <Newsletter/>
