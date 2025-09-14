@@ -5,6 +5,10 @@ body{
   color: white;
 }
 
+.albumHearButton{
+  @apply flex gap-2 items-center border border-white/20 py-3 px-6 rounded-xl w-fit
+}
+
 .secondTop{
     @apply text-[16px] lg:text-[16px] text-white/40
 }
