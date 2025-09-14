@@ -20,7 +20,8 @@ function page() {
             spotify:'https://open.spotify.com/intl-es/album/1EoDsNmgTLtmwe1BDAVxV5',
             youtube:'https://music.youtube.com/watch?v=sEPXrepgujY&list=OLAK5uy_kRl6HdICkQpZF7zuHu_Yx-RDVHw-hboxo',
             apple:'https://music.apple.com/es/album/red-taylors-version/1590368448?i=1590368453',
-          } 
+          },
+          paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, nobis est odio maxime quaerat obcaecati possimus ullam quasi sunt. Maiores, soluta iusto. Nulla.', 
         },
         { id: '2', 
           title:'Folklore', 
@@ -31,7 +32,9 @@ function page() {
             spotify:'https://open.spotify.com/intl-es/album/1EoDsNmgTLtmwe1BDAVxV5',
             youtube:'https://music.youtube.com/watch?v=sEPXrepgujY&list=OLAK5uy_kRl6HdICkQpZF7zuHu_Yx-RDVHw-hboxo',
             apple:'https://music.apple.com/es/album/red-taylors-version/1590368448?i=1590368453',
-          } 
+          },
+          paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, nobis est odio maxime quaerat obcaecati possimus ullam quasi sunt. Maiores, soluta iusto. Nulla.', 
+
         },
         { id: '3', 
           title:'Midnights', 
@@ -42,7 +45,9 @@ function page() {
             spotify:'https://open.spotify.com/intl-es/album/1EoDsNmgTLtmwe1BDAVxV5',
             youtube:'https://music.youtube.com/watch?v=sEPXrepgujY&list=OLAK5uy_kRl6HdICkQpZF7zuHu_Yx-RDVHw-hboxo',
             apple:'https://music.apple.com/es/album/red-taylors-version/1590368448?i=1590368453',
-          } 
+          },
+          paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, nobis est odio maxime quaerat obcaecati possimus ullam quasi sunt. Maiores, soluta iusto. Nulla.', 
+
         },
         { id: '4', 
           title:'Style', 
@@ -53,13 +58,17 @@ function page() {
             spotify:'https://open.spotify.com/intl-es/album/1EoDsNmgTLtmwe1BDAVxV5',
             youtube:'https://music.youtube.com/watch?v=sEPXrepgujY&list=OLAK5uy_kRl6HdICkQpZF7zuHu_Yx-RDVHw-hboxo',
             apple:'https://music.apple.com/es/album/red-taylors-version/1590368448?i=1590368453',
-          } 
+          },
+          paragraph: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veniam, nobis est odio maxime quaerat obcaecati possimus ullam quasi sunt. Maiores, soluta iusto. Nulla.', 
         },
     ]
   
 
   
   const handleClick = (image) => {
+    try{
+      localStorage.setItem('selectedImage', JSON.stringify(image));
+    } catch(e) { console.error('localStrage error',e)}
     setSelectedImage(image);
     router.push('/Albums/AlbumHear')
   }

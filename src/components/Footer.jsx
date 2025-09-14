@@ -13,8 +13,8 @@ function Footer() {
     <footer className='bg-black/50 p-6 text-white/40 mt-30'>
 
       <li className='flex gap-4 lg:[&>*>*]:h-5 '>
-          <a href="https://facebook.com"><Image src="/spotify.svg" alt="" width={18} height={10}/></a>
           <a href="https://facebook.com"><Image src="/youtube.svg" alt="" width={18} height={10} /></a>
+          <a href="https://facebook.com"><Image src="/spotify.svg" alt="" width={18} height={10}/></a>
           <a href="https://facebook.com"><Image src="/tik-tok.svg" alt="" width={18} height={10}/></a> 
           <a href="https://facebook.com"><Image src="/instagram.svg" alt="" width={18} height={10}/></a>
           <a href="https://facebook.com"><Image src="/x.svg" alt="" width={18} height={10}/></a>

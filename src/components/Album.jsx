@@ -19,14 +19,14 @@ function Album() {
 
         <section className=''>
         <Image src='/folklore.jpg' alt="" width={200} height={110} />
-          <p className='mt-1 text-white/70 text-[11px] w-full flex justify-center bg-black/40 py-[6px] border-b border-white/20'>44 minutes • Pop • 13 Songs</p>
+          <p className='mt-1 text-white/70 text-[11px] w-full flex justify-center bg-[#ffffff0c] border-b border-white/30 py-[6px]'>44 minutes • Pop • 13 Songs</p>
         </section>
      
-         <p className='text-[12px] text-white/50 text-center my-5'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum beatae maxime distinctio rerum ullam natus molestias dolorum eaque modi!</p>
+         <p className='text-[12px] text-white/50 text-center my-7'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi voluptatum beatae maxime distinctio rerum ullam natus molestias dolorum eaque modi!</p>
       
-        <section className='flex space-x-2'>
-          <Link href='/Information' className='bg-white/10 btn'>More Info</Link>
-          <Link href='/Store/Album' className='bg-white/20 btn'>Find Out</Link>
+        <section className='flex flex-col items-center gap-3'>
+          <Link href='/Store/Albums' className='bg-white/20 btnSecond text-sm flex gap-2'>Shop Now <Image src="/arrowLink.svg" alt="" width={12} height={12} /></Link>
+          <span className='text-xs text-white/40'><Link href='/Information'>see more info</Link></span>
         </section>
     </article>   
     </>

@@ -6,7 +6,8 @@ import { useProduct } from '@/contexts/data/DataContext';
 import Image from 'next/image';
 
 function PaymentsContent() {
-    const searchParams = useSearchParams();
+  
+      const searchParams = useSearchParams();
       const [buyer, setBuyer] = useState(null);
       const id = searchParams.get('id');
       const category = searchParams.get('category');

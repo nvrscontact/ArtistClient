@@ -4,12 +4,12 @@ import Image from 'next/image';
 import React from 'react'
 
 function page() {
-    const {selectedImage} = useImage();
-    if(!selectedImage) {
-        return <p>no hay imagen seleccionada</p>
-    }
+  const {selectedImage} = useImage();
+  if(!selectedImage) return <p></p>
+  
+  const {title,year,src,links,paragraph} = selectedImage;
 
-    const {title,year,src,links} = selectedImage;
+
 
     const OpenLink = (url) => {
         window.open(url,'_blank','noopener')
@@ -17,31 +17,39 @@ function page() {
 
   return (
     <> 
-            <div className='w-full'>
-
-    <div className='text-white flex flex-col mt-10'>
-      <section className='flex flex-col items-center'>
-      <h2 className='mb-2'>{title}</h2>
-      <Image src={src} alt="" height={100} width={100} />
-      </section>
-      <section className='flex flex-col gap-3 pl-12 mt-6'>
-        <button onClick={() => OpenLink(links.spotify)} className='flex gap-2 items-center'>
-          <Image src='/spotify.svg' alt="" width={20} height={20}/>
-          Spotify
-        </button>
-        <button onClick={() => OpenLink(links.youtube)} className='flex gap-2 items-center'>
-          <Image src='/youtube_music.svg' alt="" width={20} height={20} />
-          Youtube Music
-        </button>
-        <button onClick={() => OpenLink(links.apple)} className='flex gap-2 items-center'>
-          <Image src='/apple_music.svg' alt="" width={20} height={20}/>
-          Apple Music
-        </button>
-      </section>
-    </div>
-    </div>
+            <div className='w-full text-white flex flex-col py-10'>
+                <section className='flex flex-col items-center'>
+                <h2 className='mb-1 text-2xl'>{title}</h2>
+                <span className='text-white/70 text-xs'>{year}</span>
+                <Image src={src} alt="" height={140} width={140} className='mt-4' />
+                </section>
+                <p className='text-white/70 text-xs text-center text-pretty my-8 mx-10'>{paragraph}</p>
+                <section className='flex flex-col items-center gap-3 text-ms'>
+                  <button onClick={() => OpenLink(links.youtube)} className='flex gap-2 items-center border border-white/20 py-3 px-6 rounded-xl w-fit'>
+                    <Image src='/youtube_music.svg' alt="" width={16} height={20} />
+                    Youtube Music
+                    <Image src='/arrowLink.svg' alt="" width={12} height={10}/>
+                  </button>
+                  <button onClick={() => OpenLink(links.apple)} className='flex gap-2 items-center border border-white/20 py-3 px-6 rounded-xl w-fit'>
+                    <Image src='/apple_music.svg' alt="" width={16} height={20}/>
+                    Apple Music
+                    <Image src='/arrowLink.svg' alt="" width={12} height={10}/>
+                  </button>
+                 <button onClick={() => OpenLink(links.spotify)} className='flex gap-2 items-center border border-white/20 py-3 px-6 rounded-xl w-fit'>
+                    <Image src='/spotify.svg' alt="" width={16} height={20}/>
+                    Spotify
+                    <Image src='/arrowLink.svg' alt="" width={12} height={10}/>
+                  </button>
+                </section>
+            </div>
     </>
   )
 }
 
 export default page
+
+/* 
+
+
+
+*/
