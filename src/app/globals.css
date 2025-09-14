@@ -17,7 +17,11 @@ body{
     @apply border-b border-white/10 pb-3;
 }
 .btnSecond {
-  @apply rounded-xl bg-[#ffffff0c] border border-white/20 py-3 pl-8 pr-6;
+  @apply rounded-xl bg-[#ffffff0c] border border-white/20 py-3 pl-8 pr-6 text-white/70 active:text-white;
+}
+
+Link:active{
+  color:white;
 }
 
 html {

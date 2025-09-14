@@ -18,12 +18,12 @@ import React from 'react'
         img:'/red_album.jpg'
     },
     {   id:3, 
-        name:'Red', 
+        name:'Folklore', 
         price:15,
         img:'/folklore.jpg'
     },
     {   id:4, 
-        name:'Red', 
+        name:'Style', 
         price:15,
         img:'/style_album.jpg'
     },

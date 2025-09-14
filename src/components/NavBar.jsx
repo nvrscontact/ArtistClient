@@ -44,11 +44,11 @@ function NavBar() {
          <nav onClick={handleMenuClick} className='absolute z-20 top-14 left-0 w-full bg-black/60 backdrop-blur-xl text-white/60 '>
             <section className='p-5 flex flex-col justify-between space-y-5'>
             
-              <ul className='flex flex-col gap-5 text-sm lg:text-sm [&>*>*]:flex [&>*>*]:hover:text-white '>
-                <li className='navLink'><Link href='/Store'>Store</Link> </li>
-                <li className='navLink' ><Link href='/Albums/AlbumSelect'>Albums</Link> </li>
-                <li className='navLink' ><Link href='/Information'>Information</Link> </li>
-                <li className='navLink' ><Link href='/Support'>Support</Link> </li>
+              <ul className='flex flex-col gap-5 text-sm lg:text-sm [&>*>*]:flex [&>*>*]:hover:text-white [&>*>*]:active:text-white '>
+                <li className='navLink'><Link href='/Store'>Sto00re</Link> </li>
+                <li className='navLink'><Link href='/Albums/AlbumSelect'>Albums</Link> </li>
+                <li className='navLink'><Link href='/Information'>Information</Link> </li>
+                <li className='navLink'><Link href='/Support'>Support</Link> </li>
                 <li className='navLink'><Link href='/'>Home</Link> </li>
               </ul>
 

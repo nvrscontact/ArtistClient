@@ -58,7 +58,7 @@ function LanguageSelector() {
       {/* usuario hace click: onclick llama alternarmenu, invierte el valor de menuAbierto 
       (que en primera instancia estaba cerrado(false)),
       ahora menuAbierto es true y la condición menuAbierto && ... se cumple y muestra el div. */}
-        <span className='text-[14px] lg:text-sm inter-200 text-white/70'>{idiomaActual.nombre}</span> 
+        <span className='text-[14px] lg:text-sm inter-200 text-white/70 active:text-white'>{idiomaActual.nombre}</span> 
         <img src={idiomaActual.bandera} alt='' className='h-5 lg:h-6' />
      </button>
 
