@@ -29,7 +29,10 @@ function PaymentsContent() {
         const data = await res.json();
         if (data.url) {
           window.location.href = data.url; // al tener la respuesta del backend redirigir a checkout stripe.
-        } else {alert("Error al crear la sesión de pago");}};
+        } else {
+          alert("Error al crear la sesión de pago");
+        }
+      };
   
 
       useEffect(() => {
