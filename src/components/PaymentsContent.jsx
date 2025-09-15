@@ -71,29 +71,30 @@ function PaymentsContent() {
 
   return (
      <>
-        <div className='mx-10 mt-20 flex flex-col'>
-    
+        <div className='mx-10 flex flex-col'>
+
+          <h1 className='text-white/60 text-xs my-10 text-center'>Payments</h1>
+
           <article className='flex flex-col mb-30 text-white/70'>
             <h1 className='font-bold text-4xl mb-1'>{selectedProduct.name}  </h1>
-            <h2 className='mb-5 '>Price: {selectedProduct.price} €</h2>
-            <Image src={selectedProduct.img} alt='' width='160' height='160'/>
+            <h2 className=' '>Price: {selectedProduct.price} €</h2>
+            <Image src={selectedProduct.img} alt='' width='160' height='160' className='my-4'/>
             <p className=''>Includes Midnights Album, autographed by Taylor Swift. </p>
           </article>
     
           <section className='flex flex-col items-center gap-10 '>
-              <h1 className='text-white/70 w-full text-center pb-3 text-xs'>Payments Methods Available</h1>
             <section>
-              <div className='flex flex-col gap-2 items-end' onClick={handlePago}>
-                  <button className='flex gap-2 text-[14px] border border-white/30 text-white/70 font-bold py-2 pl-5 pr-4 rounded-md '>
+              <div className='flex flex-col gap-2 items-center' onClick={handlePago}>
+                  <button className='flex gap-3 text-[14px] border border-white/30 text-white/70 font-bold py-2 pl-5 pr-4 rounded-md '>
                   Credit / Debit Card
-                  <Image src={'/card.svg'} height={20} width={20} alt='' />
+                  <Image src={'/card.svg'} height={20} width={18} alt='' />
                   </button>
-                  <span className='flex gap-[6px] mr-2 text-white/50'>
-                    <Image src={'/visa.svg'} alt="" height={20} width={25} />
-                    <Image src={'/discover.svg'} alt="" height={30} width={25} />
-                    <Image src={'/mastercard.svg'} alt="" height={30} width={25} />
-                    <Image src={'/amex.svg'} alt="" height={30} width={25} />
-                    <Image src={'/maestro.svg'} alt="" height={30} width={25} />
+                  <span className='flex items-center gap-[6px] text-white/50'>
+                    <Image src={'/visa.svg'} alt="" height={20} width={21} />
+                    <Image src={'/discover.svg'} alt="" height={30} width={21} />
+                    <Image src={'/mastercard.svg'} alt="" height={30} width={21} />
+                    <Image src={'/amex.svg'} alt="" height={30} width={21} />
+                    <Image src={'/maestro.svg'} alt="" height={30} width={21} />
                   </span>
               </div>
             </section>
